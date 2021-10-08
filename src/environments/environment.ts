@@ -4,16 +4,16 @@ export const environment = {
   sso_api_username: '',
   sso_api_pwd: '',
 
-  loginURL: 'https://demo-openam.auth.us-east-1.amazoncognito.com/login?' +
-              'client_id=<client_id>&response_type=code&scope=openid+profile&' +
-              'redirect_uri=http://localhost:4300/callback',
+  loginURL: 'https://fr-pools.auth-fips.us-gov-west-1.amazoncognito.com/login?' +
+              'client_id=4ir78cjaft3423shid5mlvg8u7&response_type=code&scope=openid+profile&' +
+              'redirect_uri=http://localhost:4200/callback',
 
-  redirectURL: 'http://localhost:4300/callback',
+  redirectURL: 'http://localhost:4200/callback',
 
-  cognitoTokenURL: 'https://demo-openam.auth.us-east-1.amazoncognito.com/oauth2/token',
+  cognitoTokenURL: 'https://fr-pools.auth-fips.us-gov-west-1.amazoncognito.com/oauth2/token',
 
-  logout: 'https://demo-openam.auth.us-east-1.amazoncognito.com/logout?' +
-          'client_id=<client_id>&' +
-          'logout_uri=http://localhost:4300/home'
+  logout: 'https://https://fr-pools.auth-fips.us-gov-west-1.amazoncognito.com/logout?' +
+          'client_id=4ir78cjaft3423shid5mlvg8u7&' +
+          'logout_uri=http://localhost:4200/home'
 };
 
