@@ -12,7 +12,7 @@ export const environment = {
 
   cognitoTokenURL: 'https://fr-pools.auth-fips.us-gov-west-1.amazoncognito.com/oauth2/token',
 
-  logout: 'https://https://fr-pools.auth-fips.us-gov-west-1.amazoncognito.com/logout?' +
+  logout: 'https://fr-pools.auth-fips.us-gov-west-1.amazoncognito.com/logout?' +
           'client_id=4ir78cjaft3423shid5mlvg8u7&' +
           'logout_uri=http://localhost:4200/home'
 };
