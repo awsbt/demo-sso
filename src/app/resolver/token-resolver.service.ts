@@ -14,14 +14,15 @@ export class TokenResolverService implements Resolve<any> {
               private router: Router) { }
 
   resolve(): Observable<any | null> {
-
+    console.log('window.location.search=', window.location.search);
     const urlParams: URLSearchParams = new URLSearchParams(window.location.search);
     const code: string = urlParams.get('code');
-
+    console.log('in resolve() code=', code);
     if (!code) {
+      console.log('in resolve() code is null code=', code);
       return of(null);
     }
-
+    console.log('in resolve() code not null code=', code);
     return this.getTokenDetailsFromCognito(code).pipe(
       finalize(() => {
         this.location.replaceState(window.location.pathname);
