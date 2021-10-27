@@ -1,4 +1,5 @@
 export const environment = {
+  //worked on govcloud, dev.example.com and fr-pools
   production: false,
 
   sso_api_username: '28omb38m5vuf3bv2dpa1efl4bv',
