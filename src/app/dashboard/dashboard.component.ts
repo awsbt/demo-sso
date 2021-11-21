@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AwsCognitoService } from '../service/aws-cognito.service';
+import { CredentialsService } from '../service/credentials.service';
 import { IdentityService } from '../service/identity.service';
 import { environment } from 'src/environments/environment';
 
@@ -13,8 +14,10 @@ export class DashboardComponent implements OnInit {
   tokenDetails: any;
   token: any;
   id_token: any;
+  identityId: any;
 
-  constructor(private awsCognitoService: AwsCognitoService, private identityService: IdentityService) { }
+  constructor(private awsCognitoService: AwsCognitoService, private identityService: IdentityService,
+              private credentialsService: CredentialsService) { }
 
   ngOnInit(): void {
     console.log('Token: ', localStorage.getItem('token'));
@@ -47,6 +50,20 @@ export class DashboardComponent implements OnInit {
      this.identityService.getIdentityFromCognito(this.id_token).subscribe
       ((response: any) => {
       console.log('Response: ', response);
+      localStorage.setItem('identityId', response.IdentityId);      
+    })      
+  }
+
+  getCredentialsForIdentity() {
+    console.log('Calling Credentials for Identity');
+    this.id_token = localStorage.getItem('id_token'); 
+    this.identityId = localStorage.getItem('identityId'); 
+     this.credentialsService.getCredentialsFromIdentity(this.id_token, this.identityId).subscribe
+      ((response: any) => {
+      console.log('Response: ', response);
+      localStorage.setItem('AccessKeyId', response.Credentials.AccessKeyId);      
+      localStorage.setItem('SecretKey', response.Credentials.SecretKey);  
+      localStorage.setItem('SessionToken', response.Credentials.SessionToken);  
     })      
   }
 
