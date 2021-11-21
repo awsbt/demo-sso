@@ -36,7 +36,8 @@ export class TokenResolverService implements Resolve<any> {
         console.log('Response: ', response);
 
         localStorage.setItem('token', response.access_token);
-
+        localStorage.setItem('id_token', response.id_token);
+        
         if (response) {
           this.router.navigate(['dashboard']);
         }

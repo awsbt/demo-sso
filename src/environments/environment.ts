@@ -15,6 +15,11 @@ export const environment = {
 
   logout: 'https://fr-pools.auth-fips.us-gov-west-1.amazoncognito.com/logout?' +
           'client_id=28omb38m5vuf3bv2dpa1efl4bv&' +
-          'logout_uri=http://localhost:4200/home'
+          'logout_uri=http://localhost:4200/home',
+
+  cognitoUrl: 'https://cognito-identity.us-gov-west-1.amazonaws.com',
+
+  identityPoolId: 'us-gov-west-1:c5c5be8d-2b46-4118-a6f8-2180c917720e',     
+
 };
 
