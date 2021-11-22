@@ -21,5 +21,9 @@ export const environment = {
 
   identityPoolId: 'us-gov-west-1:c5c5be8d-2b46-4118-a6f8-2180c917720e',     
 
+  //s3BucketEndPoint: 'https://acme-project-legal.s3.us-gov-east-1.amazonaws.com',
+
+  s3BucketEndPointURL: 'http://localhost:4200/s3BucketEndPoint'
+
 };
 

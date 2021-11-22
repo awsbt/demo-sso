@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AwsCognitoService } from '../service/aws-cognito.service';
 import { CredentialsService } from '../service/credentials.service';
 import { IdentityService } from '../service/identity.service';
+import { ListObjectsService } from '../service/list-objects.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -15,9 +16,12 @@ export class DashboardComponent implements OnInit {
   token: any;
   id_token: any;
   identityId: any;
+  accessKeyId: any;
+  secretKey: any;
+  session: any;
 
   constructor(private awsCognitoService: AwsCognitoService, private identityService: IdentityService,
-              private credentialsService: CredentialsService) { }
+              private credentialsService: CredentialsService, private listObjectsService: ListObjectsService) { }
 
   ngOnInit(): void {
     console.log('Token: ', localStorage.getItem('token'));
@@ -65,6 +69,24 @@ export class DashboardComponent implements OnInit {
       localStorage.setItem('SecretKey', response.Credentials.SecretKey);  
       localStorage.setItem('SessionToken', response.Credentials.SessionToken);  
     })      
+  }
+
+  s3ListObjects() {      
+    this.accessKeyId = localStorage.getItem('AccessKeyId');      
+    this.secretKey = localStorage.getItem('SecretKey');    
+    this.session = localStorage.getItem('SessionToken');    
+    this.listObjectsService.listS3Objects(this.accessKeyId, this.secretKey, this.session, 'acme-proj-legal');    
+  }
+
+  s3ListObjectsMarketing() {
+    this.accessKeyId = localStorage.getItem('AccessKeyId');      
+    this.secretKey = localStorage.getItem('SecretKey');    
+    this.session = localStorage.getItem('SessionToken');    
+    this.listObjectsService.listS3Objects(this.accessKeyId, this.secretKey, this.session, 'acme-proj-marketing');    
+  }
+
+  s3GetObject() {
+    
   }
 
   logout(): void {

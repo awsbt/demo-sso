@@ -1,0 +1,18 @@
+{
+    "/s3BucketEndPoint": {
+      "target": "https://acme-project-legal.s3.us-gov-west-1.amazonaws.com",
+      "secure": false,
+      "changeOrigin": true,
+      "pathRewrite": {
+        "^/s3BucketEndPoint": ""
+      }
+    },
+    "/detail": {
+        "target": "https://ad7bec1a5d4a448ffb3673fc9a150873-aea79b9aae3a10f6.elb.us-gov-east-1.amazonaws.com:443/am/oauth2/userinfo",
+        "secure": false,
+        "changeOrigin": true,
+        "pathRewrite": {
+          "^/detail": ""
+        }
+      }
+  }
