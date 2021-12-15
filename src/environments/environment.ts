@@ -1,5 +1,12 @@
 export const environment = {
-  //worked on govcloud, dev.example.com and fr-pools, paul, adam, sandy
+//worked on govcloud, dev.example.com and fr-pools, paul, adam, sandy
+// Cognito:
+// User Pools:
+// fr-pools (User Pools) (SAML fr-idp) (EKS govcloud)
+// https://dev.example.com/am/IDPSloSoap/metaAlias/meta-idp
+// Identity Pool: us-gov-west-1:c5c5be8d-2b46-4118-a6f8-2180c917720e
+// fr-cognito-id-pool (auth provider using Cognito fr-pools which is tied to SAML fr-idp using EKS govcloud) (no IAM identity provider needed)
+
   production: false,
 
   sso_api_username: '28omb38m5vuf3bv2dpa1efl4bv',
